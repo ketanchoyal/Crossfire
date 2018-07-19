@@ -1,0 +1,99 @@
+package com.ketanchoyal.crossfire;
+
+import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.daasuu.bl.BubbleLayout;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolderLeft>{
+
+    private List<Messages> mMessageList;
+    private FirebaseAuth mAuth;
+
+    public MessageAdapter(List<Messages> mMessageList)
+    {
+        this.mMessageList=mMessageList;
+        mAuth=FirebaseAuth.getInstance();
+    }
+
+
+    @Override
+    public MessageViewHolderLeft onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_single_layout_left,parent,false);
+        
+        return new MessageViewHolderLeft(v);
+    }
+
+    @Override
+    public void onBindViewHolder(MessageViewHolderLeft holder, int position) {
+
+        String current_user_id = mAuth.getCurrentUser().getUid();
+
+        Messages c = mMessageList.get(position);
+
+        String from_user = c.getFrom();
+
+        if(from_user.equals(current_user_id))
+        {
+            holder.mMessageBubbleLayoutleft.setBubbleColor(R.color.chatbox);
+            holder.messagetextleft.setTextColor(Color.BLACK);
+        }
+        else
+        {
+            holder.mMessageBubbleLayoutleft.setBubbleColor(Color.BLACK);
+            holder.messagetextleft.setTextColor(Color.WHITE);
+        }
+
+        holder.messagetextleft.setText(c.getMessage());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return mMessageList.size();
+    }
+
+    public class MessageViewHolderLeft extends RecyclerView.ViewHolder
+    {
+        public TextView messagetextleft;
+        public CircleImageView profileimageleft;
+        public BubbleLayout mMessageBubbleLayoutleft;
+
+        public MessageViewHolderLeft(View view) {
+            super(view);
+
+            messagetextleft = view.findViewById(R.id.message_text_layout_left);
+            profileimageleft = view.findViewById(R.id.message_profile_layout_left);
+            mMessageBubbleLayoutleft = view.findViewById(R.id.message_bubble_layout_left);
+
+        }
+    }
+
+    public class MessageViewHolderRight extends RecyclerView.ViewHolder
+    {
+        public TextView messagetextright;
+        public CircleImageView profileimageright;
+        public BubbleLayout mMessageBubbleLayoutright;
+
+        public MessageViewHolderRight(View view) {
+            super(view);
+
+            messagetextright = view.findViewById(R.id.message_text_layout_right);
+            profileimageright = view.findViewById(R.id.message_profile_layout_right);
+            mMessageBubbleLayoutright = view.findViewById(R.id.message_bubble_layout_right);
+
+        }
+    }
+}
+
+

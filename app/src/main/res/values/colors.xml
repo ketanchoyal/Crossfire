@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2c2c2c</color>
+    <color name="colorPrimaryDark">#1b1b1b</color>
+    <color name="colorAccent">#FF0000</color>
+    <color name="colorAccentDark">#9a0007</color>
+    <color name="toolbar">#000000</color>
+    <color name="background1">#4d000000</color>
+    <color name="background2">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="chatbox">#a1a4ad</color>
+</resources>

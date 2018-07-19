@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">CrossFire</string>
+    <string name="need_a_new_account">Need a new Account?</string>
+    <string name="your_name">Display Name</string>
+    <string name="reg_email">Email</string>
+    <string name="create_a_new_account">Create a new Account</string>
+    <string name="create_account">Create Account</string>
+    <string name="reg_password">Password</string>
+    <string name="register_account">register Account</string>
+    <string name="login">Login</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_to_your_account">Login to Your Account</string>
+    <string name="sign_in">Sign in</string>
+    <string name="already_have_an_account">Already have an Account?</string>
+    <string name="welcome_to_rapid_chat_app">Welcome to Rapid Chat App</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="crossfire">CrossFire</string>
+    <string name="default_status">Just Started using 2018 App.</string>
+    <string name="display_name">Display Name</string>
+    <string name="change_profile_image">Change Profile Image</string>
+    <string name="status">Status</string>
+    <string name="change_status">Change Status</string>
+    <string name="send_friend_request">Send Friend Request</string>
+    <string name="no_of_mutual_friends">No of Mutual Friends</string>
+    <string name="friends_count">Friends Count</string>
+    <string name="user_image">User Image</string>
+    <string name="decline_friend_request">Decline Friend Request</string>
+</resources>
