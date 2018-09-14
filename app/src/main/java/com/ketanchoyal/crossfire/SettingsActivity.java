@@ -204,7 +204,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                         if(task.isSuccessful())
                         {
-                            final String download_url=task.getResult().getDownloadUrl().toString();
+                            final String download_url=task.getResult().getMetadata().getReference().getDownloadUrl().toString();
 
                             UploadTask uploadTask_thumb = thumb_filepath.putBytes(thumb_byte);
                             uploadTask_thumb.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -213,7 +213,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                                     if(thumb_task.isSuccessful())
                                     {
-                                        String thumb_download_url=thumb_task.getResult().getDownloadUrl().toString();
+                                        String thumb_download_url=thumb_task.getResult().getMetadata().getReference().getDownloadUrl().toString();
 
                                         Map<String, Object> update_hashmap=new HashMap<>();
                                         update_hashmap.put("image",download_url);

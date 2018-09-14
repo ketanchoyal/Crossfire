@@ -365,3 +365,25 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 }
+
+/* dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:design:27.0.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.google.firebase:firebase-auth:11.8.0'
+    implementation 'com.google.firebase:firebase-database:11.8.0'
+    implementation 'com.google.firebase:firebase-storage:11.8.0'
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
+    testImplementation 'junit:junit:4.12'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.theartofdev.edmodo:android-image-cropper:2.6.+'
+    implementation 'com.firebaseui:firebase-ui-database:3.2.1'
+    compile 'id.zelory:compressor:2.1.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile 'com.daasuu:BubbleLayout:1.2.0'
+
+} */
