@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -54,6 +55,7 @@ public class UsersActivity extends AppCompatActivity {
         mUserList=findViewById(R.id.users_list);
         mUserList.setHasFixedSize(true);
         mUserList.setLayoutManager(new LinearLayoutManager(this));
+        mUserList.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
     }
 
@@ -92,7 +94,7 @@ public class UsersActivity extends AppCompatActivity {
                 //usersViewHolder.displayname.setText(users.getName());
                 //usersViewHolder.displaystatus.setText(users.getStatus());
 
-                usersViewHolder.setDisplayname(users.getName());;
+                usersViewHolder.displayname.setText(users.getName());;
                 usersViewHolder.setUserStatus(users.getStatus());
                 usersViewHolder.setUserImage(users.getThumb_image(),getApplicationContext());
 

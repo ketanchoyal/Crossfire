@@ -55,7 +55,6 @@
             android:hint="Type a message"
             android:paddingBottom="12dp"
             android:paddingEnd="10dp"
-            android:paddingLeft="10dp"
             android:paddingStart="10dp"
             android:paddingTop="14dp"
             android:textAlignment="textStart"

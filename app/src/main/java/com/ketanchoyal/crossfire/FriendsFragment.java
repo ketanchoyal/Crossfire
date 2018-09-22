@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,7 +19,6 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,6 +68,7 @@ public class FriendsFragment extends Fragment {
 
         mFriendsList.setHasFixedSize(true);
         mFriendsList.setLayoutManager(new LinearLayoutManager(getContext()));
+        mFriendsList.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
 
         return mMainView;
     }
@@ -96,7 +96,6 @@ public class FriendsFragment extends Fragment {
 
 
                 final String Friend_id=getRef(position).getKey();
-
                 mUserDatabase.child(Friend_id).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -129,18 +128,18 @@ public class FriendsFragment extends Fragment {
 
                                         switch (which) {
                                             case 0 :
-                                                {
-                                                    Intent profileintent = new Intent(getContext(), ProfileActivity.class);
-                                                    profileintent.putExtra("user_id", Friend_id);
-                                                    startActivity(profileintent);
-                                                }break;
+                                            {
+                                                Intent profileintent = new Intent(getContext(), ProfileActivity.class);
+                                                profileintent.putExtra("user_id", Friend_id);
+                                                startActivity(profileintent);
+                                            }break;
                                             case 1:
-                                                {
-                                                    Intent messageintent = new Intent(getContext(), ChatActivity.class);
-                                                    messageintent.putExtra("user_name", UserName);
-                                                    messageintent.putExtra("user_id", Friend_id);
-                                                    startActivity(messageintent);
-                                                }break;
+                                            {
+                                                Intent messageintent = new Intent(getContext(), ChatActivity.class);
+                                                messageintent.putExtra("user_name", UserName);
+                                                messageintent.putExtra("user_id", Friend_id);
+                                                startActivity(messageintent);
+                                            }break;
                                         }
 
                                     }
@@ -157,6 +156,7 @@ public class FriendsFragment extends Fragment {
 
                     }
                 });
+
             }
         };
 

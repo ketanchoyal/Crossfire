@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() ==  R.id.main_logout_btn)
         {
             mUserRef.child("online").setValue(ServerValue.TIMESTAMP);
-            firebaseAuth.getInstance().signOut();
+            firebaseAuth.signOut();
             sendtostart();
         }
 

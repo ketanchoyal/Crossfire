@@ -1,10 +1,12 @@
 package com.ketanchoyal.crossfire;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -84,14 +86,15 @@ public class ChatActivity extends AppCompatActivity {
 
         firebaseAuth= FirebaseAuth.getInstance();
         mRootRef= FirebaseDatabase.getInstance().getReference();
-        mChatUserId=firebaseAuth.getCurrentUser().getUid();
 
         /* TODO online not working for chatactivity*/
-        mRootRef.child("Users").child(mChatUserId).child("online").setValue("true");
+
 
         mChatUserId =getIntent().getStringExtra("user_id");
         mFriendName=getIntent().getStringExtra("user_name");
         mCurrentUserId=firebaseAuth.getCurrentUser().getUid();
+
+        //mRootRef.child("Users").child(mChatUserId).child("online").setValue("true");
 
         getSupportActionBar().setTitle(null);
 
@@ -117,6 +120,7 @@ public class ChatActivity extends AppCompatActivity {
 
         mMessageList.setHasFixedSize(true);
         mMessageList.setLayoutManager(mLinearLayout);
+        mMessageList.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         mRefreshLayout = findViewById(R.id.message_swipe_layout);
 
         mMessageList.setAdapter(mAdaptor);
@@ -375,7 +379,7 @@ public class ChatActivity extends AppCompatActivity {
 
             mRootRef.updateChildren(messaseuserMap, new DatabaseReference.CompletionListener() {
                 @Override
-                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                public void onComplete(DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
 
                     if(databaseError != null)
                     {

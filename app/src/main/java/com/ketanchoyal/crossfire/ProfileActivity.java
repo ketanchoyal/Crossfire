@@ -303,7 +303,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                mFriendrequestDatabase.child(mCurrent_user.getUid()).child(Friend_id).child("request_type").setValue("declined")
+                mFriendrequestDatabase.child(mCurrent_user.getUid()).child(Friend_id).child("request_type").setValue(null)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -325,6 +325,7 @@ public class ProfileActivity extends AppCompatActivity {
                                                     }
                                                     else
                                                     {
+                                                        mrequestdeclinebtn.setEnabled(true);
                                                         Toast.makeText(ProfileActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
                                                     }
                                                 }
@@ -332,7 +333,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 }
                                 else
                                 {
-
+                                    mrequestdeclinebtn.setEnabled(true);
                                 }
                             }
                         });
