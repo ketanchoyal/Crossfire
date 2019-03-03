@@ -89,7 +89,6 @@ public class ChatActivity extends AppCompatActivity {
 
         /* TODO online not working for chatactivity*/
 
-
         mChatUserId =getIntent().getStringExtra("user_id");
         mFriendName=getIntent().getStringExtra("user_name");
         mCurrentUserId=firebaseAuth.getCurrentUser().getUid();
